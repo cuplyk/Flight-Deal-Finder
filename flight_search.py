@@ -8,6 +8,7 @@ TEQUILA_API_KEY = os.environ.get("TEQUILA_API_KEY")
 class FlightSearch:
 
     def get_destination_code(self, city_name):
+        '''This method is responsible for talking to the Flight Search API.'''
         location_endpoint = f"{TEQUILA_ENDPOINT}/locations/query"
         headers = {"apikey": TEQUILA_API_KEY}
         query = {"term": city_name, "location_types": "city"}
@@ -17,6 +18,7 @@ class FlightSearch:
         return code
 
     def check_flights(self, origin_city_code, destination_city_code, from_time, to_time):
+        '''This method is responsible for checking flight prices.'''
         headers = {"apikey": TEQUILA_API_KEY}
         query = {
             "fly_from": origin_city_code,

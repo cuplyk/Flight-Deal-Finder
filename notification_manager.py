@@ -8,11 +8,11 @@ TWILIO_VERIFIED_NUMBER =  os.environ.get("TWILIO_VERIFIED_NUMBER")
 
 
 class NotificationManager:
-
     def __init__(self):
         self.client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
 
     def send_sms(self, message):
+        '''This method is responsible for sending notifications with the deal flight details.'''
         message = self.client.messages.create(
             body=message,
             from_=TWILIO_VIRTUAL_NUMBER,
